@@ -11,14 +11,10 @@ pipeline {
             }
         }
         stage('Build') { 
-            steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+            withMaven(maven : 'apache-maven-3.6.2') {
+                bat'mvn clean compile'
             }
-            post {
-                success {
-                    junit 'target/surefire-reports/**/*.xml' 
-                }
-            }
+           
         }
     }
 }
