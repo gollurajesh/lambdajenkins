@@ -13,7 +13,10 @@ pipeline {
 	        
         }
         stage('Push'){
-        	sh "aws s3 cp C:/Users/rajeshg/.jenkins/workspace/EquinoxTest/SpringEureka/target/TestEureka-0.0.1-SNAPSHOT.jar s3://${bucket}"
+        	steps {
+        		sh "aws s3 cp C:/Users/rajeshg/.jenkins/workspace/EquinoxTest/SpringEureka/target/TestEureka-0.0.1-SNAPSHOT.jar s3://${bucket}"
+        	}
+        	
     	}
         
     }
