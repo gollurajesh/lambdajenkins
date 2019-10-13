@@ -4,6 +4,9 @@ def region = 'us-east-1'
 
 pipeline { 
     agent any 
+    environment {
+	  PATH = "C:/Program Files/Git/bin;C:/Program Files/Git/usr/bin:${env.PATH}"
+	}
     stages { 
     	
         stage('Build') { 
