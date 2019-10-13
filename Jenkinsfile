@@ -10,6 +10,6 @@ node{
         bat'mvn clean package'
     }
     stage('Push'){
-        bat "aws s3 cp /target/demo-1.0.0.jar s3://${bucket}"    	
+        bat "aws s3 cp target/demo-1.0.0.jar s3://${bucket}"    	
     }
 }
