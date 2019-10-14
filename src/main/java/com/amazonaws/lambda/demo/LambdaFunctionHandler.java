@@ -10,7 +10,7 @@ public class LambdaFunctionHandler implements RequestHandler<Object, String> {
         context.getLogger().log("Input: " + input);
 
         // TODO: implement your handler
-        return "Hello from Lambda1!";
+        return "Hello from Lambda2!";
     }
 
 }
