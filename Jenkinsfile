@@ -1,6 +1,7 @@
 def bucket = 'demos3terraform'
 def functionName = 'TestJavaJenkins'
 def region = 'us-east-1'
+def jarfilename = 'demo-1.0.0.jar'
 
 node{
     stage('Checkout'){
@@ -10,9 +11,10 @@ node{
         bat'mvn clean package'
     }
     stage('Push'){
-        bat "aws s3 cp target/demo-1.0.0.jar s3://${bucket}"    	
+        bat "aws s3 cp target/${jarfilename} s3://${bucket}"    	
     }
     stage('Deploy'){
-        bat "aws lambda update-function-code --function-name ${functionName} --s3-bucket ${bucket} --s3-key demo-1.0.0.jar"
+        bat "aws lambda update-function-code --function-name ${functionName} --s3-bucket ${bucket} --s3-key ${jarfilename}"
+        bat "aws lambda publish-version --function-name ${functionName}"
     }
 }
