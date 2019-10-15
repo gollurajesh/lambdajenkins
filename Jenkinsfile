@@ -8,7 +8,7 @@ node{
         checkout scm
     }
     stage('Build'){
-        bat'mvn clean package'
+        bat'mvn clean package -Dbuild.number=${BUILD_NUMBER}'
     }
     stage('Push'){
         bat "aws s3 cp target/${jarfilename} s3://${bucket}"    	
