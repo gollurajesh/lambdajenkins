@@ -12,10 +12,6 @@ node{
         bat "mvn clean install jar:jar -Djar.finalName=${jarfilename}"
     }
     stage('Push'){
-        bat "aws s3 cp target/${projectname} s3://${bucket}"    	
-    }
-    stage('Deploy'){
-        bat "aws lambda update-function-code --function-name ${functionName} --s3-bucket ${bucket} --s3-key ${projectname}"
-        bat "aws lambda publish-version --function-name ${functionName}"
+        build job: 'terraformtest'   	
     }
 }
