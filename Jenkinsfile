@@ -8,7 +8,7 @@ node{
         checkout scm
     }
     stage('Build'){
-        bat "mvn clean install -Dversion=lambdajenkins${BUILD_NUMBER}"
+        bat "mvn clean install jar:jar -Djar.finalName=lambdajenkins${BUILD_NUMBER}"
     }
     stage('Push'){
         bat "aws s3 cp target/lambdajenkins${BUILD_NUMBER} s3://${bucket}"    	
