@@ -9,7 +9,7 @@ node{
         checkout scm
     }
     stage('Build'){
-        bat "mvn clean install jar:jar -Djar.finalName=${jarfilename}"
+        bat "mvn clean install
     }
     stage('Push'){
         build job: 'terraformtest'   	
