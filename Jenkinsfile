@@ -9,7 +9,7 @@ node{
         checkout scm
     }
     stage('Build'){
-        bat "mvn clean install
+        bat "mvn clean install"
     }
     stage('Push'){
         build job: 'terraformtest'   	
