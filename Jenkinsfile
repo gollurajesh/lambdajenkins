@@ -13,7 +13,7 @@ node{
     }
     stage('Push'){
         build job: 'terraformtest', parameters: [
-        string(name: 'lambda_alias', value: prod),
+        string(name: 'lambda_alias', value: 'prod'),
             string(name: 'projectname', value: "${projectname}")
     ]
     }
