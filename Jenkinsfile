@@ -12,6 +12,9 @@ node{
         bat "mvn clean install"
     }
     stage('Push'){
-        build job: 'terraformtest'   	
+        build job: 'terraformtest', parameters: [
+        string(name: 'lambda_alias', value: prod),
+            string(name: 'projectname', value: "${projectname}")
+    ]
     }
 }
