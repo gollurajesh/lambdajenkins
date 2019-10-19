@@ -38,6 +38,6 @@ public class LambdaFunctionHandlerTest {
         String output = handler.handleRequest(input, ctx);
 
         // TODO: validate output here if needed.
-        Assert.assertEquals("Hello from Lambda3!", output);
+        Assert.assertEquals("Hello from Lambda4!", output);
     }
 }
